@@ -1,0 +1,70 @@
+<html>
+<title>
+	MyCurrentLocation
+</title>
+<script type="text/javascript">
+	function getLocation()
+	{
+		if(navigator.geolocation)
+			{
+				document.getElementById("lat").innerHTML="Your Browser support Geolocation";
+				navigator.geolocation.getCurrentPosition(showPosition);
+			}
+		else
+			{
+				document.getElementById("myblock").innerHTML="Your Browser doesn't support Geolocation";
+			}
+	}
+		function showPosition(position) {
+			document.getElementById("lat").innerHTML= position.coords.latitude;
+			document.getElementById("log").innerHTML= position.coords.longitude;
+		}
+		
+
+</script>
+<style type="text/css">
+	#myblock
+	{
+		border: 2px dotted;
+		height: 40%;
+		width: auto;
+		background-color: #d3d3d3;
+		text-align: left;
+		margin: 5% 40% 5% 40%;
+	}
+	body
+	{
+		text-align: center;
+		background-color: #808080;
+	}
+	.clr
+	{
+		clear=both;
+	}
+	#lat,#log
+	{
+		margin: 2%;
+
+	}
+	strong
+	{
+		margin-left: 2%;
+	}
+</style>
+<body >
+
+
+	<h1>Your Current Location is :: </h1>
+	<button id="but11" onclick="getLocation()" >Show Location</button>
+	<section id="myblock" >
+		<br>
+		<strong>Latitude:   </strong> <div id="lat" float="right"></div>
+		<br>
+		<div class="clr"></div>
+		<strong>Longitude:  </strong><div id="log" float="right"></div>
+		<br>
+		<div class="clr"></div>
+	</section>
+	<footer> Copyright &copy; 2018</footer>
+</body>
+</html>
